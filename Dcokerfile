@@ -1,5 +1,7 @@
-public class Main {
-	public static void main(String[] args){
-		System.out.print("Hello");
-	}
-}
+FROM node:latest
+WORKDIR /usr/src/app
+COPY package.json ./
+RUN npm install
+COPY . .
+EXPOSE 3000
+CMD ["node", "index.js"]
